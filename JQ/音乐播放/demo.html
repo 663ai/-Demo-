@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="js/jquery.js"></script> 
+	<script type="text/javascript" src="js/music.js"></script> 
+	<link href="css/music.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+
+<title>音乐盒</title>
+</head>
+
+<body>
+<audio autoplay="autopaly" loop="loop"><source src=""  type="audio/mp3" /></audio> 
+<div style="text-align:center;clear:both;">
+<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+<script src="/follow.js" type="text/javascript"></script>
+
+
+<div class="playDiv">
+  <div class="currentMusic"><span class="currentSpan">正在播放：<span id="playMsg"></span></span></div>
+  <div>
+  <audio id="musicBox" controls onended="myMusic.nextMusic()" style="width:99%;padding-left:2px;">      
+  </audio>
+  </div>
+  <div class="currentBtns">
+	<div id="lastMusic" class="lastMusic">
+		<img title="第一首歌曲" src="images/first.png" onclick="myMusic.fristMusic()"/>&nbsp;&nbsp;
+		<img title="上一首歌曲" src="images/last.png" onclick="myMusic.lastMusic()"/>&nbsp;&nbsp;
+		<img title="点击暂停" id="pop" src="images/pause.png" onclick="myMusic.playOrPause()" imgVal="0"/>&nbsp;&nbsp;
+		<img title="下一首歌曲" src="images/next.png" onclick="myMusic.nextMusic()"/>&nbsp;&nbsp;
+		<img title="最后一首歌曲" src="images/end.png" onclick="myMusic.end()"/>
+		</div>
+	<div id="play"></div>
+	<div id="nextMusic"></div>
+  </div>
+  </div>
+  <div >
+	<div class="songStyle float_l">
+	<h3>歌曲列表 <div class="float_r"><span class="playMode">
+		<select id="playMode">
+		<option value="1">全部循环</option>
+		<option value="2">单曲循环</option>
+		<option value="3">随机播放</option>
+		</select>
+	</span></div></h3>
+		<div id="songs">
+		<ul id="musicList">
+		</ul>
+		</div>
+	</div>
+
+</body>
+</html>

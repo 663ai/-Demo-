@@ -1,0 +1,35 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>按钮悬停动画</title>
+<style type="text/css">
+* { margin:0; padding:0; }
+a { color:#999; text-decoration:none; }
+li { list-style:none; }
+body { background-color: #222222; }
+.xs_ul { width:1072px; margin:100px auto 0; font-size:0; line-height:0; }
+.xs_ul li { display:inline-block; font-size:20px; line-height:20px; background:#fff; margin:20px; }
+.xs_ul li a { display:block; width:76px; text-align:center; padding:15px 30px; border:1px solid #000; }
+</style>
+<script type="text/javascript" src="jQuery-2.2.4.min.js"></script>
+<script type="text/javascript" src="xs.js"></script>
+</head>
+
+<body>
+	<div class="xs_box">
+    	<ul class="xs_ul">
+
+        	<li class="xs_li_13"><a href="javascript:;">效果13</a></li>
+
+        </ul>
+    </div>
+    <script type="text/javascript">
+		$(document).ready(function() {
+
+			$(".xs_li_13").xs999(13);
+
+        });
+	</script>
+</body>
+</html>

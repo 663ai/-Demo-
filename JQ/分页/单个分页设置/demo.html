@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<title>刷新不变的分页</title>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+.tcdPageCode {
+	padding: 15px 5px;
+	text-align: left;
+	color: #ccc;
+	text-align: center;
+}
+.tcdPageCode a {
+	display: inline-block;
+	color: #428bca;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding: 0 5px;
+	border: 1px solid #ddd;
+	margin: 0 2px;
+	border-radius: 4px;
+	vertical-align: middle;
+}
+.tcdPageCode a:hover {
+	text-decoration: none;
+	border: 1px solid #428bca;
+}
+.tcdPageCode span.current {
+	font-size: 12px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding: 0 5px;
+	margin: 0 2px;
+	color: #fff;
+	background-color: #428bca;
+	border: 1px solid #428bca;
+	border-radius: 4px;
+	vertical-align: middle;
+}
+.tcdPageCode span.disabled {
+	font-size: 12px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding: 0 5px;
+	margin: 0 2px;
+	color: #bfbfbf;
+	background: #f2f2f2;
+	border: 1px solid #bfbfbf;
+	border-radius: 4px;
+	vertical-align: middle;
+}
+</style>
+</head>
+<body>
+
+<br>
+<br>
+<br>
+
+<div style="width:50% ;margin: 0 auto">
+  <div style="float: left" class="tcdPageCode"></div>
+
+  <div style="clear: both"></div>
+</div>
+
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.page.js"></script> 
+<script type="text/javascript">
+var tiaoshu=1000;//数据的条数
+var yexian=4;//每页几条数据
+var ye=  Math.ceil(tiaoshu/yexian);//可以分为几页
+var currentUrl01 = decodeURI(window.location.href);
+var arr01 = currentUrl01.split("?");
+$('#zongye').text(ye);
+$('#dang').html(arr01[1]);
+$(function () {
+	$('#tiao').val(arr01[1]);
+	setTimeout(function () {
+		$("#zhuan").click()
+	},10);
+});
+function bian(yeshu){
+	var stateObject = {};
+	var title = "";
+	var newUrl ="" ;
+	if(arr01[0]!=parseInt($('#dang').text())){
+		newUrl =arr01[0]+"?"+yeshu;
+		history.pushState(stateObject,title,newUrl);
+	}
+}
+
+////////////////////////////////这里面获取数据  p 为当前页数
+$(".tcdPageCode").createPage({
+	pageCount:ye,
+	current:1,
+	backFn:function(p){
+		console.log(p);
+		bian(p);
+	}
+});
+</script>
+
+</body>
+</html>
